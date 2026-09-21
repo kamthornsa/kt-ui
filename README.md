@@ -1,5 +1,8 @@
 # KT UI migration kit — ใส่ KT UI ในระบบ Next.js + Tailwind + shadcn ที่มีอยู่แล้ว
 
+## ตัวอย่าง live
+คลิกดูตัวอย่างได้ที่: [https://kamthornsa.github.io/kt-ui/](https://kamthornsa.github.io/kt-ui/)
+
 **พาเลต:** `#01244C` กรมท่า (สีหลัก — ตัวอักษรหัวข้อ ปุ่มหลัก และพื้นหลังโหมดมืด) · `#00A6F7` ฟ้า (ลิงก์และการกระทำ) · `#38E0FB` ฟ้าสว่าง · `#B8F456` เขียวมะนาว (สองตัวหลังใช้ตกแต่ง gradient และกราฟ)
 
 ## วิธีเร็ว (vibe code)
