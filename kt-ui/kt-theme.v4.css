@@ -1,0 +1,210 @@
+/* ==========================================================
+   KT UI theme — Tailwind v4 + shadcn/ui
+   Palette: #01244C (หลัก) · #00A6F7 · #38E0FB · #B8F456
+   HOW TO APPLY (existing project):
+   1. In your app/globals.css keep `@import "tailwindcss";` and
+      `@custom-variant dark (...)` as they are.
+   2. REPLACE the values inside your existing `:root { }` and `.dark { }`
+      with the ones below (keep any extra variables your app added).
+   3. MERGE the `@theme inline { }` block: keep your lines, add the
+      missing ones (body, link, success, warning, info, kt-*, shadow-kt-*).
+   4. Append the @utility blocks at the end.
+   ========================================================== */
+
+:root {
+  --radius: 0.5rem; /* sm 4px · md 6px · lg 8px · xl 12px */
+
+  /* surfaces & text — neutrals are tinted toward the navy, never pure grey */
+  --background: #ffffff;            /* page */
+  --foreground: #01244c;            /* ink — the brand navy */
+  --card: #ffffff;
+  --card-foreground: #01244c;
+  --popover: #ffffff;
+  --popover-foreground: #01244c;
+  --body: #33506e;                  /* paragraph text */
+
+  /* brand: navy leads, blue is the interactive accent */
+  --primary: #01244c;
+  --primary-foreground: #ffffff;
+  --primary-hover: #073c7a;
+  --link: #0069ab;                  /* readable form of #00A6F7 on light */
+
+  --secondary: #eef4f9;             /* pale band */
+  --secondary-foreground: #01244c;
+  --muted: #eef4f9;
+  --muted-foreground: #546b80;
+  --accent: #e0f2fe;                /* tinted hover / selected ground */
+  --accent-foreground: #0069ab;
+
+  /* status: fg on its -subtle bg, all ≥ 4.5:1 */
+  --destructive: #b3093c;
+  --destructive-subtle: #ffe4ee;
+  --success: #3a6b00;               /* dark form of the lime */
+  --success-subtle: #eaf9cd;
+  --warning: #8a5000;
+  --warning-subtle: #fdf0cd;
+  --info: #0069ab;
+  --info-subtle: #e0f2fe;
+
+  /* lines */
+  --border: #d7e3ee;                /* hairline, decorative */
+  --input: #6b8298;                 /* control border, 3:1 */
+  --ring: #0086d1;
+
+  /* the four brand colours, raw — gradients, charts, illustration only */
+  --kt-navy: #01244c;
+  --kt-blue: #00a6f7;
+  --kt-cyan: #38e0fb;
+  --kt-lime: #b8f456;
+  --hero-band-opacity: 0.95;
+
+  /* charts: brand ramp navy → blue → cyan → lime, plus one warm for a 5th series */
+  --chart-1: #01244c;
+  --chart-2: #00a6f7;
+  --chart-3: #38e0fb;
+  --chart-4: #b8f456;
+  --chart-5: #f59f00;
+
+  /* sidebar */
+  --sidebar: #eef4f9;
+  --sidebar-foreground: #01244c;
+  --sidebar-primary: #01244c;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e0f2fe;
+  --sidebar-accent-foreground: #0069ab;
+  --sidebar-border: #d7e3ee;
+  --sidebar-ring: #0086d1;
+}
+
+.dark {
+  /* the brand navy becomes the ground; the blue becomes the primary fill */
+  --background: #01244c;
+  --foreground: #ffffff;
+  --card: #073767;
+  --card-foreground: #ffffff;
+  --popover: #073767;
+  --popover-foreground: #ffffff;
+  --body: #c3d6e6;
+
+  --primary: #00a6f7;
+  --primary-foreground: #01244c;
+  --primary-hover: #2eb8ff;
+  --link: #6fd2ff;
+
+  --secondary: #042c5c;
+  --secondary-foreground: #ffffff;
+  --muted: #042c5c;
+  --muted-foreground: #9bb5cd;
+  --accent: #0b3f77;
+  --accent-foreground: #8fd9ff;
+
+  --destructive: #ff8fa3;
+  --destructive-subtle: #4a1030;
+  --success: #b8f456;
+  --success-subtle: #1a3a0c;
+  --warning: #ffd479;
+  --warning-subtle: #3d2f08;
+  --info: #7fd4ff;
+  --info-subtle: #0b3f77;
+
+  --border: #1a4d82;
+  --input: #6b8298;
+  --ring: #38e0fb;
+
+  --hero-band-opacity: 0.4;
+
+  --sidebar: #042c5c;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00a6f7;
+  --sidebar-primary-foreground: #01244c;
+  --sidebar-accent: #0b3f77;
+  --sidebar-accent-foreground: #8fd9ff;
+  --sidebar-border: #1a4d82;
+  --sidebar-ring: #38e0fb;
+}
+
+@theme inline {
+  /* fonts come from next/font variables set in app/layout.tsx */
+  --font-sans: var(--font-inter), var(--font-plex-thai), system-ui, sans-serif;
+  --font-mono: var(--font-source-code), ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-body: var(--body);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-link: var(--link);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-subtle: var(--destructive-subtle);
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-info: var(--info);
+  --color-info-subtle: var(--info-subtle);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-kt-navy: var(--kt-navy);
+  --color-kt-blue: var(--kt-blue);
+  --color-kt-cyan: var(--kt-cyan);
+  --color-kt-lime: var(--kt-lime);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* KT UI signature navy-tinted shadows → shadow-kt-sm / -md / -lg */
+  --shadow-kt-sm: 0 2px 5px -1px rgb(1 36 76 / 0.22), 0 1px 3px -1px rgb(1 36 76 / 0.28);
+  --shadow-kt-md: 0 13px 27px -5px rgb(1 36 76 / 0.22), 0 8px 16px -8px rgb(1 36 76 / 0.28);
+  --shadow-kt-lg: 0 50px 100px -20px rgb(1 36 76 / 0.25), 0 30px 60px -30px rgb(1 36 76 / 0.3);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-body font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply text-foreground tracking-tight;
+  }
+}
+
+/* type helpers that match KT UI's scale */
+@utility text-display {
+  font-size: 3.5rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.03em;
+}
+@utility text-lead {
+  font-size: 1.1875rem; line-height: 1.6;
+}
+@utility eyebrow {
+  font-size: 0.8125rem; line-height: 1.25rem; font-weight: 600;
+  letter-spacing: 0.02em; text-transform: uppercase; color: var(--link);
+}
